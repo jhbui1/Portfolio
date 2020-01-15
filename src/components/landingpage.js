@@ -8,7 +8,7 @@ class LandingPage extends Component {
       <div style={{width:'100%', margin:'auto'}}>
         <Grid className="landing-grid">
           <Cell col={12}>
-            <div className = "banner">
+            <div className="banner">
               <h1>Jonathan Bui</h1>
             </div>
             <img
@@ -17,9 +17,9 @@ class LandingPage extends Component {
               className="profile-pic"
             />
             <div className="banner">
-              <h1>Fullstack Web Developer</h1>
+              <h1>Software Developer</h1>
               <hr/>
-              <p>HTML/CSS | Vue | React | MySQL | C++ </p>
+              <p>HTML/CSS | Vue | React | MySQL | C++ | Python </p>
 
             </div>
           </Cell>

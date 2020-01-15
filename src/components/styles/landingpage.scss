@@ -1,0 +1,39 @@
+.profile-pic {
+  // width:40%;
+  height:50%;
+  border-radius: 50%;
+}
+
+.landing-grid {
+  background: #ffd89b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+
+}
+
+.banner {
+  background-color: black;
+  opacity: .8;
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+
+  h1 {
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+  }
+
+  hr {
+    border: 3px solid white;
+    width: 50%;
+    margin: auto;
+  }
+
+  p {
+    font-size: 30px;
+    color: white;
+    padding: 1em;
+  }
+}
