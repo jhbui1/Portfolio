@@ -3,14 +3,20 @@ import {Tab,Tabs,Grid,Cell} from 'react-mdl';
 import './styles/projects.scss'
 import ReactMarkdown from 'react-markdown';
 import ReadMe from './assets/README.md';
+import ZOReadMe from './assets/ZOTOUTREADME.md';
+import PeekPeekMainDemo from './assets/images/PeekPeekDemo.gif';
 
 class Projects extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { activeTab: 0, markdown: null };
+    this.state = { activeTab: 0, markdown: null,zomarkdown:null };
 
+
+    //Anchor references for tables of contents
+    //used wtih scrollintoview, css smooth scroll is not as widley available
     this.top = React.createRef();
+    this.zotop = React.createRef();
 
     this.PeekPeekSumRef = React.createRef();
     this.PeekPeekReadmeRef = React.createRef();
@@ -22,22 +28,31 @@ class Projects extends Component {
     this.ZotOutSCRef = React.createRef();
     this.ZotOutDemoRef = React.createRef();
    }
-   componentDidMount() {
+
+  componentDidMount() {
      fetch(ReadMe).then((response) => response.text()).then((text) =>
        {this.setState({markdown:text})})
+     fetch(ZOReadMe).then((response) => response.text()).then((text) =>
+       {this.setState({zomarkdown:text})})
 
    }
-   smoothScrollStart = (ref) =>{
-      ref.current.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-      })
-   }
-   scrollToTop =(event) =>{
-     this.smoothScrollStart(this.top);
 
-   }
-   handleOnClick = (event) => {
+  smoothScrollStart = (ref) =>{
+    ref.current.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    })
+  }
+
+  scrollToTop =(event) =>{
+    if(event.target.id === "peekpeek") {
+      this.smoothScrollStart(this.top);
+    }else{
+      this.smoothScrollStart(this.zotop);
+    }
+  }
+
+  handleOnClick = (event) => {
      event.persist();
      if(event.target.id){
       if(event.target.id ==="ppsum"){
@@ -60,8 +75,8 @@ class Projects extends Component {
       }
     }
   }
-   toggleCategories(){
 
+  toggleCategories(){
      if(this.state.activeTab===0){
        return(
          <div className="category">
@@ -69,12 +84,11 @@ class Projects extends Component {
              <div ref={this.top} className="toc">
                <h2 id="ppsum" onClick={this.handleOnClick}>1. Summary and Responsibilities</h2>
                <h2 id="pprm" onClick={this.handleOnClick}>2. Read Me</h2>
-               <h2 id="ppsc" onClick={this.handleOnClick}>3. Source Code</h2>
+               <h2 id="ppsc" onClick={this.handleOnClick}>3. Source Code and Site Links</h2>
                <h2 id="ppdem" onClick={this.handleOnClick}>4. Demo</h2>
                <hr/>
              </div>
            </div>
-
             <h2 className="bodyHeader" ref={this.PeekPeekSumRef}>Summary and Responsibilities</h2>
             <p>
               This project was completed for a senior project course, (Informatics 117, Project in Software System Design) in a team with 4 other members.
@@ -88,10 +102,13 @@ class Projects extends Component {
               status on Trello.
             </p>
             <h2  className="bodyHeader" ref={this.PeekPeekReadmeRef}>Read Me</h2>
-                <div className="readme">
-                  <ReactMarkdown source={this.state.markdown}/>
-                </div>
+              <div className="readme">
+                <ReactMarkdown escapeHtml={false} source={this.state.markdown}/>
+              </div>
             <h2  className="bodyHeader" ref={this.PeekPeekSCRef}>Source Code</h2>
+              <a id="peekpeek-link" href='https://peekpeek.com' target="_blank" class='download-button'>
+              Site Link
+              </a>
               <a href='https://github.com/kencue/PeekPeekProject.git' target="_blank" class='download-button'>
               Repository
               </a>
@@ -101,41 +118,15 @@ class Projects extends Component {
               </a>
 
             <h2  className="bodyHeader" ref={this.PeekPeekDemoRef}>Demo</h2>
-              <p>
-                What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-  Why do we use it?
-  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-  What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-  Why do we use it?
-  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-  What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-  Why do we use it?
-  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-  What is Lorem Ipsum?
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-  Why do we use it?
-  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-              </p>
-                <button id="scroll-to-top" onClick={this.scrollToTop}>Scroll to Top</button>
+            <img src={PeekPeekMainDemo}/>
+                <button id="peekpeek" class="scroll-to-top" onClick={this.scrollToTop}>Scroll to Top</button>
          </div>
        )
      }else if(this.state.activeTab===1){
        return(
        <div className="category">
          <div className="toc-wrapper">
-           <div className="toc">
+           <div ref={this.zotop} className="toc">
              <h2 id="zosum" onClick={this.handleOnClick}>1. Summary/Responsibilities</h2>
              <h2 id="zorm" onClick={this.handleOnClick}>2. Read Me</h2>
              <h2 id="zosc" onClick={this.handleOnClick}>3. Source Code</h2>
@@ -143,33 +134,49 @@ class Projects extends Component {
              <hr/>
            </div>
          </div>
-          <h2 className="bodyHeader" ref={this.ZotOutSumRef}>Summary/Responsibilities</h2>
+          <h2 id="zosum" className="bodyHeader" ref={this.ZotOutSumRef}>Summary/Responsibilities</h2>
+          <p>
+              I created ZotOut to reinforce my MySQL/C++ experience. Additionally, I wanted to understand basically and implement
+              abstractaction of database queries.
+              <br/><br/>
+              ZotOut is a simple gym management terminal application. It would be used from the perspective of gym managers and employees.
+              The application keeps track of and displays simple employee and member data such as salary, contact info, renewal date etc.
+              It provides basic functionality including accurately checking members in and maintaining metrics such as most valuable employee/member.
+              The program also provides simple security in the form of password salting and hashing and access control.
+          </p>
           <h2 className="bodyHeader" ref={this.ZotOutReadmeRef}>Read Me</h2>
-          <h2 className="bodyHeader" ref={this.ZotOutSCRef}>Source Code</h2>
+            <div className="readme">
+              <ReactMarkdown escapeHtml={false} source={this.state.zomarkdown}/>
+            </div>
+          <section id ="zosc">
+            <h2 className="bodyHeader" ref={this.ZotOutSCRef}>Source Code</h2>
+              <a href='https://github.com/jhbui1/ZotOut' target="_blank" class='download-button'>
+              Repository
+              </a>
+              <a href='https://github.com/jhbui1/ZotOut/archive/master.zip'  class='download-button'>
+              Download
+              <span>Latest version from GitHub</span>
+              </a>
+          </section>
           <h2 className="bodyHeader" ref={this.ZotOutDemoRef}>Demo</h2>
+          <button id="zotout" class="scroll-to-top" onClick={this.scrollToTop}>Scroll to Top</button>
        </div>
       )
      }
-   }
+  }
   render(){
     return(
-
-
       <div className="demo-tabs">
         <Tabs activeTab={this.state.activeTab} onChange={(tabId) => this.setState({ activeTab: tabId })} ripple>
             <Tab>Peek Peek(VueJS)</Tab>
             <Tab>ZotOut(MySQL/C++)</Tab>
         </Tabs>
-
         <Grid>
           <Cell col={12}>
-              <div className="content">{this.toggleCategories()}
-
-              </div>
+              <div className="content">{this.toggleCategories()} </div>
           </Cell>
         </Grid>
       </div>
-
     )
   }
 }

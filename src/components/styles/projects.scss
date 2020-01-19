@@ -50,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   margin: auto;
-
+  
   h2 {
     font-size: 2vh;
     width:auto; //Override width category width
@@ -68,7 +68,7 @@
   }
 }
 
-#scroll-to-top {
+.scroll-to-top {
   position: sticky;
   bottom: 0;
   background: #ffd89b;  /* fallback for old browsers */
@@ -78,7 +78,10 @@
   font: 'Segoe UI';
 
 }
-
+#peekpeek-link {
+    background: #33A700 url('https://drive.google.com/uc?export=download&id=1PKnystbHiluJVgQvUa6PUSU6WD5elG_X') no-repeat 93% 50%;
+    background-size: 5% 85%;
+}
 a.download-button {
 	display: block;
 	padding: 15px 20px 10px 20px;
@@ -88,6 +91,8 @@ a.download-button {
 	font-size: 28px;
 	font-weight: bold;
 	background: #33A700 url('http://i.imgur.com/wt7UJ.png') no-repeat 92% 50%;
+
+
 	border: 2px solid #339410;
 	box-shadow: 3px 3px 5px #000000;
 	border-radius: 5px;

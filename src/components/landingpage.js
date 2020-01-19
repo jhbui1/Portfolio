@@ -12,7 +12,7 @@ class LandingPage extends Component {
               <h1>Jonathan Bui</h1>
             </div>
             <img
-              src={require('./assets/profile.jpg')}
+              src={require('./assets/profile-1.jpg')}
               alt="profile"
               className="profile-pic"
             />
