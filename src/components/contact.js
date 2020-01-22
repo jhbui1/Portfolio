@@ -11,12 +11,18 @@ class Contact extends Component {
   }
   render(){
     return(
-      <div className="container">
-        <div className="left">
-          <img src={Profile}/>
-
-        </div>
-        <div className="right">
+      <div className="content">
+        <div className="container">
+          <div className="left">
+            <h2> Jonathan Bui</h2>
+            <img src={Profile}/>
+            <p style={{ width: '50%', margin: 'auto', paddingTop: '1em', textAlign:'center'}}>
+              I am a highly dedicated software developer. I am willing and able to learn many languages and skill to complete my
+              goals. I hope to be a valuable asset for any of my employers.
+            </p>
+          </div>
+          <div className="right">
+            <h2>Contact Me</h2>
             <p id="email">
               email@jonathan-bui.com
             </p>
@@ -28,6 +34,7 @@ class Contact extends Component {
             <button id="showContactForm" onClick={this.showModal}>
               Inquiry or Feedback?
             </button>
+          </div>
         </div>
       </div>
     )
