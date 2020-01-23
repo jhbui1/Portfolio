@@ -1,36 +1,46 @@
 import React, {Component} from 'react';
 import './styles/contact.scss';
 import Profile from './assets/profile.jpg'
+import {List,ListItem,ListItemContent} from 'react-mdl'
 
 class Contact extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   showModal() {
 
   }
   render(){
     return(
-      <div className="content">
-        <div className="container">
+      <div className="contact-content">
+        <div className="contact-container">
           <div className="left">
             <h2> Jonathan Bui</h2>
-            <img src={Profile}/>
+            <img src={Profile} alt="profile.png"/>
             <p style={{ width: '50%', margin: 'auto', paddingTop: '1em', textAlign:'center'}}>
-              I am a highly dedicated software developer. I am willing and able to learn many languages and skill to complete my
-              goals. I hope to be a valuable asset for any of my employers.
+              I am an aspiring and highly dedicated software developer with full-stack experience. I am willing and able to learn many languages and skill to complete my
+              goals. I hope to be a valuable asset for any of my colleagues.
             </p>
           </div>
           <div className="right">
             <h2>Contact Me</h2>
-            <p id="email">
-              email@jonathan-bui.com
-            </p>
-            <p id="location">
-                Huntington Beach
-                <br/>
-                CA,92647
-            </p>
+            <hr/>
+              <List className="contact-list">
+                <ListItem>
+                  <ListItemContent style={{fontFamily:"Arial"}}>
+                    <div>
+                      <i  class="fa fa-envelope"></i>
+                      <a href="mailto:email@jonathan-bui.com">email@jonathan-bui.com</a>
+                    </div>
+
+                  </ListItemContent>
+                </ListItem>
+                <ListItem>
+                  <ListItemContent>
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Huntington Beach, CA
+                  </ListItemContent>
+                </ListItem>
+              </List>
+
             <button id="showContactForm" onClick={this.showModal}>
               Inquiry or Feedback?
             </button>

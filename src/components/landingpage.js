@@ -19,7 +19,7 @@ class LandingPage extends Component {
             <div className="banner">
               <h1>Software Developer</h1>
               <hr/>
-              <p>HTML/CSS | Vue | React | MySQL | C++ | Python </p>
+              <h2>HTML/CSS | Vue | React | MySQL | C++ | Python </h2>
 
             </div>
           </Cell>

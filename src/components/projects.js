@@ -106,7 +106,7 @@ class Projects extends Component {
                 <ReactMarkdown escapeHtml={false} source={this.state.markdown}/>
               </div>
             <h2  className="bodyHeader" ref={this.PeekPeekSCRef}>Source Code</h2>
-              <a id="peekpeek-link" href='https://peekpeek.com' target="_blank" class='download-button'>
+              <a id="peekpeek-link" href='https://peekpeek.com' target="_blank" className='download-button'>
               Site Link
               </a>
               <a href='https://github.com/kencue/PeekPeekProject.git' target="_blank" class='download-button'>
