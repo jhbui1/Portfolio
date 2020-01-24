@@ -106,10 +106,12 @@ class Projects extends Component {
                 <ReactMarkdown escapeHtml={false} source={this.state.markdown}/>
               </div>
             <h2  className="bodyHeader" ref={this.PeekPeekSCRef}>Source Code</h2>
-              <a id="peekpeek-link" href='https://peekpeek.com' target="_blank" className='download-button'>
+              <a id="peekpeek-link" href='https://peekpeek.com' target="_blank"
+                className='download-button' rel="noopener noreferrer">
               Site Link
               </a>
-              <a href='https://github.com/kencue/PeekPeekProject.git' target="_blank" class='download-button'>
+              <a href='https://github.com/kencue/PeekPeekProject.git' target="_blank"
+                class='download-button' rel="noopener noreferrer">
               Repository
               </a>
               <a href='https://github.com/kencue/PeekPeekProject/archive/master.zip'  class='download-button'>
@@ -118,7 +120,7 @@ class Projects extends Component {
               </a>
 
             <h2  className="bodyHeader" ref={this.PeekPeekDemoRef}>Demo</h2>
-            <img src={PeekPeekMainDemo}/>
+            <img src={PeekPeekMainDemo} alt ="demo_gif"/>
                 <button id="peekpeek" class="scroll-to-top" onClick={this.scrollToTop}>Scroll to Top</button>
          </div>
        )
@@ -150,10 +152,12 @@ class Projects extends Component {
             </div>
           <section id ="zosc">
             <h2 className="bodyHeader" ref={this.ZotOutSCRef}>Source Code</h2>
-              <a href='https://github.com/jhbui1/ZotOut' target="_blank" class='download-button'>
+              <a href='https://github.com/jhbui1/ZotOut' target="_blank"
+                class='download-button' rel="noopener noreferrer">
               Repository
               </a>
-              <a href='https://github.com/jhbui1/ZotOut/archive/master.zip'  class='download-button'>
+              <a href='https://github.com/jhbui1/ZotOut/archive/master.zip'
+                class='download-button' rel="noopener noreferrer">
               Download
               <span>Latest version from GitHub</span>
               </a>
