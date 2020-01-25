@@ -49,7 +49,8 @@ class Contact extends Component {
               Inquiry or Feedback?
             </button>
             <Modal show={this.state.show} handleClose={this.hideModal} handleClick={this.showModal}>
-              <p>Modal</p>
+              <h3>Thank you for contacting me!</h3>
+
             </Modal>
           </div>
         </div>
@@ -64,9 +65,27 @@ const Modal = ({ handleClose, handleClick, show, children }) => {
     <div className={showHideClassName} onClick={handleClose}>
       <div className='modal-main' onClick={handleClick}>
         {children}
-        <button  onClick={handleClose}>
+        <div className="form-container">
+          <div className="responder-info">
+            <h4>Return information (optional)</h4>
+            <div className="responder-fill-ins">
+              <p>Name</p>
+              <input placeholder="Name"/>
+              <p>E-mail</p>
+              <input placeholder="E-mail"/>
+              <p>Company</p>
+              <input placeholder="Company"/>
+            </div>
+          </div>
+          <div className="inquiry-elements">
+            <h4>Inquiry or Feedback:</h4>
+            <textarea id="contact-txt-area"></textarea>
+          </div>
+        </div>
+        <button  id="close-btn" onClick={handleClose}>
           Close
         </button>
+
       </div>
     </div>
   );
