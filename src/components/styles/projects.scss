@@ -50,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  
+
   h2 {
     font-size: 2vh;
     width:auto; //Override width category width
@@ -75,13 +75,15 @@
   background: -webkit-linear-gradient(to right, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 50px;
-  font: 'Segoe UI';
+  font-weight: normal !important;
+  color: white;
 
 }
 #peekpeek-link {
     background: #33A700 url('https://drive.google.com/uc?export=download&id=1PKnystbHiluJVgQvUa6PUSU6WD5elG_X') no-repeat 93% 50%;
     background-size: 5% 85%;
 }
+
 a.download-button {
 	display: block;
 	padding: 15px 20px 10px 20px;
